@@ -5,7 +5,9 @@
     align-items: center;
 }
 .navbar .logo{
-    width: 150px;
+    font-weight:700;
+    color: orangered;
+    font-size: 40px;
 }
 .navbar-menu{
     display: flex;
@@ -59,7 +61,7 @@
 
 @media (max-width: 1050px){
     .navbar .logo{
-        width: 140px;
+        font-size: 35px;
     }
     .navbar-menu{
         gap: 20px;
@@ -77,7 +79,7 @@
 }
 @media (max-width: 900px){
     .navbar .logo{
-        width: 120px;
+        font-size: 30px;
     }
     .navbar-menu{
         gap: 15px;

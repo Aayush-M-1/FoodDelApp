@@ -27,3 +27,8 @@
 .footer-social-icons p{
     color:white;
 }
+.logo{
+    font-weight:700;
+    color: orangered;
+    font-size: 40px;
+}

@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <div className='footer' id='footer'>
         <div className="footer-content">
-            <img src={assets.logo} alt="" />
+            <a href='#navbar'><p className="logo">Delectable</p></a>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae nesciunt facilis mollitia temporibus aliquid illum voluptates repudiandae nemo ipsum quibusdam exercitationem, eius iste necessitatibus voluptas autem rem est ea aperiam.</p>
             <div className="footer-social-icons">
-                <img src={assets.linkedin_icon} alt="" />
+                <a href='https://www.linkedin.com/in/aayush-mahobia-330076224/' target='_blank'><img src={assets.linkedin_icon} alt="" /></a>
                 <p>Aayush Mahobia</p>
             </div>
         </div>
