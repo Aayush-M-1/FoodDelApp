@@ -42,7 +42,7 @@ const List = ({url}) => {
             <b>Image</b>
             <b>Name</b>
             <b>Category</b>
-            <b>Price</b>
+            <b>Price (Rs)</b>
             <b>Action</b>
           </div>
           {list.map((item,index)=>{

@@ -6,12 +6,12 @@ import { StoreContext } from '../../context/StoreContext';
 const FoodItem = ({id,name,price,description,image}) => {
 
   // const [itemCount, setItemCount] = useState(0); // not efficient, as it is creating a state for each entry
-  const {cartItems,addToCart,removeFromCart} = useContext(StoreContext);
+  const {cartItems,addToCart,removeFromCart,url} = useContext(StoreContext);
 
   return (
     <div className='food-item'>
         <div className="food-item-img-container">
-            <img src={image} alt="" className="food-item-image" />
+            <img src={url+"/images/"+image} alt="" className="food-item-image" />
             {
               !cartItems[id]
                 ? <img onClick={()=>addToCart(id)} src={assets.add_icon_white} alt="" className="add" />
@@ -28,7 +28,7 @@ const FoodItem = ({id,name,price,description,image}) => {
                 <img src={assets.rating_starts} alt="" />
             </div>
             <p className="food-item-desc">{description}</p>
-            <p className="food-item-price">${price}</p>
+            <p className="food-item-price">Rs {price}</p>
         </div>
     </div>
   )

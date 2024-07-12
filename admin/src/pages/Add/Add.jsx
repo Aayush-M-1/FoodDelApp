@@ -11,7 +11,7 @@ const Add = ({url}) => {
         name:"",
         description:"",
         price:"",
-        category:"Salad"
+        category:""
     })
 
     const onChangeHandler = (event) => {
@@ -38,7 +38,7 @@ const Add = ({url}) => {
                 name:"",
                 description:"",
                 price:"",
-                category:"Salad"
+                category:""
             })
             setImage(false)
             toast.success(response.data.message)
@@ -82,7 +82,7 @@ const Add = ({url}) => {
                 </div>
                 <div className="add-price flex-col">
                     <p>Product Price</p>
-                    <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='$20'/>
+                    <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='Rs 125'/>
                 </div>
             </div>
             <button type='submit' className="add-btn">ADD</button>
