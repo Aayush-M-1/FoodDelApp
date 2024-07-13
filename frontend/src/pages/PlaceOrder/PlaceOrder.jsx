@@ -24,25 +24,43 @@ const PlaceOrder = () => {
     setData(data=>({...data, [name]:value}))
   }
 
+  const placeOrder = async (event) => {
+    event.preventDefault();
+    let orderItems = [];
+    food_list.map((item)=>{
+      if(cartItems[item._id]>0){
+        let itemInfo = item;
+        itemInfo["quantity"] = cartItems[item._id];
+        orderItems.push(itemInfo)
+      }
+    })
+    // console.log(orderItems);
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount: getTotalCartAmount()+40
+    }
+  }
+
   return (
-    <form className='place-order'>
+    <form onSubmit={placeOrder} className='place-order'>
       <div className="place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
-          <input onChange={onChangeHandler} name='firstName' value={data.firstName} type="text" placeholder='First name' />
-          <input onChange={onChangeHandler} name='lastName' value={data.lastName} type="text" placeholder='Last name' />
+          <input required onChange={onChangeHandler} name='firstName' value={data.firstName} type="text" placeholder='First name' />
+          <input required onChange={onChangeHandler} name='lastName' value={data.lastName} type="text" placeholder='Last name' />
         </div>
-        <input onChange={onChangeHandler} name='email' value={data.email} type="email" placeholder='Email address' />
-        <input onChange={onChangeHandler} name='street' value={data.street} type="text" placeholder='Street' />
+        <input required onChange={onChangeHandler} name='email' value={data.email} type="email" placeholder='Email address' />
+        <input required onChange={onChangeHandler} name='street' value={data.street} type="text" placeholder='Street' />
         <div className="multi-fields">
-          <input onChange={onChangeHandler} name='city' value={data.city} type="text" placeholder='City' />
-          <input onChange={onChangeHandler} name='state' value={data.state} type="text" placeholder='State' />
+          <input required onChange={onChangeHandler} name='city' value={data.city} type="text" placeholder='City' />
+          <input required onChange={onChangeHandler} name='state' value={data.state} type="text" placeholder='State' />
         </div>
         <div className="multi-fields">
-          <input onChange={onChangeHandler} name='zipcode' value={data.zipcode} type="text" placeholder='Zip Code' />
-          <input onChange={onChangeHandler} name='country' value={data.country} type="text" placeholder='Country' />
+          <input required onChange={onChangeHandler} name='zipcode' value={data.zipcode} type="text" placeholder='Zip Code' />
+          <input required onChange={onChangeHandler} name='country' value={data.country} type="text" placeholder='Country' />
         </div>
-        <input onChange={onChangeHandler} name='phone' value={data.phone} type="text" placeholder='Phone' />
+        <input required onChange={onChangeHandler} name='phone' value={data.phone} type="text" placeholder='Phone' />
       </div>
 
       <div className="place-order-right">
@@ -64,7 +82,7 @@ const PlaceOrder = () => {
               <b>Rs {getTotalCartAmount()?getTotalCartAmount()+40:0}</b>
             </div>
           </div>
-          <button>PROCEED TO PAYMENT</button>
+          <button type='submit'>PROCEED TO PAYMENT</button>
         </div>
       </div>
     </form>
