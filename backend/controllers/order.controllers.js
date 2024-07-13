@@ -51,7 +51,7 @@ const placeOrder = async (req,res) => {
             cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`
         })
 
-        res.json({success:true, session_url:session_url})
+        res.json({success:true, session_url:session.url})
 
     } catch (error) {
         console.log(error)
@@ -59,4 +59,21 @@ const placeOrder = async (req,res) => {
     }
 }
 
-export {placeOrder}
+const verifyOrder = async (req,res) => {
+    const {orderId, success} = req.body;
+    try {
+        if(success=="true"){
+            await Order.findByIdAndUpdate(orderId,{payment:true});
+            res.json({success:true, message:"Paid"});
+        }
+        else{
+            await Order.findByIdAndDelete(orderId);
+            res.json({success:false, message:"Not Paid"});
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({success: false, message:"error while verifying order"})
+    }
+}
+
+export {placeOrder, verifyOrder}
