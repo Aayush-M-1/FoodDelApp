@@ -33,3 +33,9 @@
     color: white;
     cursor: pointer;
 }
+
+@media(max-width: 400px){
+    .add{
+        margin-left: 10px;
+    }
+}

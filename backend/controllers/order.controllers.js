@@ -87,4 +87,26 @@ const userOrders = async (req,res) => {
     }
 }
 
-export {placeOrder, verifyOrder, userOrders}
+// Listing all the Orders (for Admin Panel)
+const listOrders = async (req,res) => {
+    try {
+        const orders = await Order.find({});
+        res.json({success:true, data:orders});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:"error while listing all orders"})
+    }
+}
+
+// Updating order status (for Admin Panel)
+const updateStatus = async (req,res) => {
+    try {
+        await Order.findByIdAndUpdate(req.body.orderId, {status:req.body.status});
+        res.json({success:true, message:"status updated"});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:"error while updating status"});
+    }
+}
+
+export {placeOrder, verifyOrder, userOrders, listOrders, updateStatus}
