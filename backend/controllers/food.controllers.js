@@ -57,7 +57,6 @@ const removeFood = async (req,res) => {
 const searchFood = async (req,res) => {
     try {
         const {search} = req.body;
-        console.log(search);
         if(search){
             let foods = await Food.aggregate([
                 {
