@@ -4,14 +4,15 @@
     height: 30px;
 }
 .search-bar-container input{
-    width: 275px;
+    width: 250px;
     padding-left: 7px;
+    outline-color: tomato;
 }
 .search-bar-container button{
-    background-color: #efefef;
-    padding: 2px;
+    background-color: tomato;
+    color: white;
+    padding: 5px;
     cursor: pointer;
-}
-.search-bar-container button img{
-    width: 25px;
+    border: none;
+    outline: none;
 }

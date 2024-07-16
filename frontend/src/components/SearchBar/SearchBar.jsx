@@ -18,9 +18,9 @@ const SearchBar = () => {
 
   const fetchSearchList = async (event) => {
     event.preventDefault();
-    console.log(data);
+    // console.log(data);
     const response = await axios.post(url+"/api/food/search", {search:data});
-    console.log(response.data.data);
+    // console.log(response.data.data);
     setSearchlist(response.data.data);
     navigate("./search");
   }
@@ -33,8 +33,8 @@ const SearchBar = () => {
   return (
     <div className='search-bar'>
         <form onSubmit={fetchSearchList} className="search-bar-container" id='search-bar-container'>
-            <input type="text" placeholder="Search..." onChange={onChangeHandler} name='data' value={data}/>
-            <button type='submit'><img src={assets.search_icon} alt="" /></button>
+            <input type="text" placeholder="Type Something..." onChange={onChangeHandler} name='data' value={data} required/>
+            <button type='submit'>Search</button>
         </form>
     </div>
   )
