@@ -1,0 +1,17 @@
+.search-bar-container{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+.search-bar-container input{
+    width: 275px;
+    padding-left: 7px;
+}
+.search-bar-container button{
+    background-color: #efefef;
+    padding: 2px;
+    cursor: pointer;
+}
+.search-bar-container button img{
+    width: 25px;
+}

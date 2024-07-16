@@ -8,22 +8,27 @@ import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
+import SearchBar from './components/SearchBar/SearchBar'
+import Search from './pages/Search/Search'
 
 const App = () => {
 
   const [showLogin, setShowLogin] = useState(false)
+  const [showSearchBar, setShowSearchBar] = useState(false)
 
   return (
     <>
       {showLogin ? <LoginPopup setShowLogin={setShowLogin}/> : <></>}
       <div className='app'>
-        <NavBar setShowLogin={setShowLogin}/>
+        <NavBar setShowLogin={setShowLogin} setShowSearchBar={setShowSearchBar}/>
+        {showSearchBar ? <SearchBar /> : <></>}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder />} />
           <Route path='/verify' element={<Verify/>} />
           <Route path='/myorders' element={<MyOrders/>} />
+          <Route path='/search' element={<Search/>} />
         </Routes>
       </div>
       <Footer />

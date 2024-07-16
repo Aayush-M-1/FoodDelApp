@@ -52,4 +52,33 @@ const removeFood = async (req,res) => {
     }
 }
 
-export {addFood, listFood, removeFood}
+// search food functionality
+
+const searchFood = async (req,res) => {
+    try {
+        const {search} = req.body;
+        console.log(search);
+        if(search){
+            let foods = await Food.aggregate([
+                {
+                    $search: {
+                      index: "foodsSearchIndex",
+                      autocomplete: {
+                        query: search,
+                        path: "name"
+                      }
+                    }
+                }
+            ])
+            res.json({success:true, data:foods});
+        }
+        else{
+            res.json({success:false, message:"Type Something"})
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:"error while searching food"})
+    }
+}
+
+export {addFood, listFood, removeFood, searchFood}

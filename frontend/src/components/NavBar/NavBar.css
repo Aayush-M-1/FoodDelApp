@@ -97,6 +97,10 @@
     color: tomato;
 }
 
+.navbar-right .search-icon{
+    cursor: pointer;
+}
+
 @media (max-width: 1050px){
     .navbar .logo{
         font-size: 35px;
