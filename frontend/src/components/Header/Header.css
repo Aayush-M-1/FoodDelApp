@@ -1,8 +1,7 @@
 .header{
-    height: 34vw;
+    height: 31vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    /* background: url('/banner.jpg') no-repeat; */
+    background: url('/Banner.png') no-repeat;
     background-size: contain;
     position: relative;
 }
@@ -13,14 +12,9 @@
     align-items: start;
     gap: 1.5vw;
     max-width: 50%;
-    bottom: 10%;
-    left: 6vw;
+    bottom: 12%;
+    left: 3vw;
     animation: fadeIn 3s;
-}
-.header-content h2{
-    font-weight: 500;
-    color: white;
-    font-size: max(4.5vw,22px);
 }
 .header-content p{
     color: white;

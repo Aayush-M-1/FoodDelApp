@@ -6,8 +6,7 @@ const Header = () => {
   return (
     <div className='header'>
       <div className="header-content">
-        <h2>Order your favourite food here</h2>
-        <p>Choose from a diverse menu featuring a delectable array of dishes crafted with the finest ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your dining experience, through our delicious meal at a time</p>
+        <p>Welcome to DELicios, where every bite tells a story! Explore our diverse menu, crafted with the freshest ingredients and infused with passion. Whether you're dining in or ordering online, experience the perfect blend of flavor, quality, and hospitality. Discover your new favorite dish at DELicios today!</p>
         <button onClick={()=>location.href='#explore-menu'}>View Menu</button>
       </div>
     </div>
